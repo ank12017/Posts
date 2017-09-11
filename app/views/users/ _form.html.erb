@@ -1,0 +1,13 @@
+<%= form_with(model: [ @post, @post.users.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+  <p>
+    <%= form.label :last_name%><br>
+    <%= form.text_area :last_name %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

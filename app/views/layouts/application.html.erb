@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo</title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color:powderblue;">
+    <header>
+      <nav class="navbar navbar-light bg-light" style="background-color: #b96ca7;">
+         <span class="h1" class="navbar-brand mb-0">Demo</span>
+           <ul class = "nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><%= link_to 'Posts', posts_path, :class => 'navbar-link' %> </li>
+                  <li>Logged in as <strong><%= current_user.first_name %></strong></li>
+                  <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <span class="glyphicon glyphicon-user"></span> </li>|
+                 <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-out"></span> </li>
+                <% else %>
+               <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span>  </li>|
+              <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span></li>
+            <% end %>
+          </ul>
+      </nav>
+    </header>
+    <p class="navbar-text pull-right">
+     <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </p>
+    <%= yield %>
+  </body>
+</html>
