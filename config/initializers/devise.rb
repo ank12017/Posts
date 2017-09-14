@@ -6,13 +6,14 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'b7fec2a195f70897c3889ce8a81ec6da39112d1993f4402e4362ddde0389d6b20bec53a4b631d4e1829ff7cfb279ac6a21ccbdd0260b5d1945ed71d349ad94fb'
+  #config.secret_key = '989b8aef80910c4efd6e664fe5733a4a'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+config.omniauth :facebook, "471630079883517", "989b8aef80910c4efd6e664fe5733a4a", callback_url: "http://localhost:3000/users/auth/facebook/callback"
 
 config.authentication_keys = [ :login ]
   # Configure the class responsible to send e-mails.

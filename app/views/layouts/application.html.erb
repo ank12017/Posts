@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Demo</title>
+    <title>Demo App</title>
+    <style>
+  footer {
+      background-color: #2d2d30;
+      color: #f5f5f5;
+      padding: 32px;
+    }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }  
+  </style>
+  </head>
 
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body style="background-color:powderblue;">
+  <body style="background-color:white">
+  
     <header>
-      <nav class="navbar navbar-light bg-light" style="background-color: #b96ca7;">
-         <span class="h1" class="navbar-brand mb-0">Demo</span>
-           <ul class = "nav navbar-nav navbar-right">
-              <% if user_signed_in? %>
-                <li><%= link_to 'Posts', posts_path, :class => 'navbar-link' %> </li>
-                  <li>Logged in as <strong><%= current_user.first_name %></strong></li>
+      <nav class="navbar navbar-light bg-light" style="background-color: #b9b9b9;">
+        <span class="h1" class="navbar-brand mb-0"><%= link_to "demo", welcome_index_path %></span>
+          <ul class = "nav navbar-nav navbar-right">
+            <% unless current_user %> 
+              <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+            <% else %>
+              <%= current_user[:name] %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            <% end %>
+             
+            <% if user_signed_in? %>
+             <li><%= link_to 'Posts', posts_path, :class => 'navbar-link' %> </li>
+                <li>Logged in as <strong><%= current_user.first_name %></strong></li>
                   <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <span class="glyphicon glyphicon-user"></span> </li>|
-                 <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-out"></span> </li>
-                <% else %>
-               <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span>  </li>|
-              <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-out"></span> </li>
+            <% else %>
+       
+              <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span> </li>|
+                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span></li>
             <% end %>
           </ul>
       </nav>
@@ -30,6 +53,13 @@
      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </p>
-    <%= yield %>
-  </body>
-</html>
+   <div class = "container">
+      <%= yield %>
+    </div>
+    <footer class="text-center" style="background-color: #b9b9b9">
+      <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a><br><br>
+       <p>Bootstrap Theme Made By Me</p> 
+    </footer>
+</body>

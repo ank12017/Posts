@@ -1,0 +1,143 @@
+<head>
+<center><h1>Welcome To My Demo App</h1></center>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%); /* make all photos black and white */ 
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+  }
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+     </ol>
+     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag "images7.jpeg", width: "100%", height:"200px" %>
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          
+        </div>      
+      </div>
+
+      <div class="item">
+        <%= image_tag "images5.jpeg", width: "100%", height:"200px" %>
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          
+        </div>      
+      </div>
+    
+      <div class="item">
+       <%= image_tag "images3.jpeg", width: "100%", height:"200px" %>
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+             <%= image_tag "images2.jpeg", width: "100%", height: "400px" %>
+            <div class="carousel-caption">
+              <h3>New York</h3>
+               </div> 
+            <div class="item">
+                <div class="carousel-caption">
+                  <h3>Chicago</h3>
+                </div>      
+            </div>
+            <div class="item">
+              <div class="carousel-caption">
+        		      <h3>LA</h3>
+        		    </div>      
+            </div>
+        </div>      
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Contact Section) -->
+      <div id="contact">
+        <h3 class="text-center">Contact</h3>
+        <p class="text-center"><em>We love our fans!</em></p>
+
+        <div class="row">
+            <div class="col-md-4">
+              <p><span class="glyphicon glyphicon-map-marker"></span>Indore, India</p>
+                  <p><span class="glyphicon glyphicon-phone"></span>Phone: +91 9039391906</p>
+              <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+            </div>
+          <div class="col-md-8">
+            <%= form_tag :welcome_contact_us_mailer, url: :welcome_contact_us_mailer_path, method: 'post' do |f| %>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                 </div>
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+              </div>
+               <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+                <br>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <button class="btn pull-right" type="submit">Send</button>
+                </div>
+               </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <br>
+</body>
