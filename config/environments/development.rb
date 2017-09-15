@@ -55,11 +55,11 @@ ActionMailer::Base.smtp_settings = {
     :password => 'ravi1308',
     :domain => 'gmail.com',
     :address => 'smtp.gmail.com',
-    :port => 587,
+    :port => '587',
     :authentication => :plain,
     :enable_starttls_auto => true
 }
-
+ 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

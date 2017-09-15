@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
 
-    default from: 'saloriya1997@gmail.com'
-
+    default from: 'ankitadangi11@gmail.com'
+     
   def welcome_email(user)
     @user = user
     @site_name = "http://cd-online.herokuapp.com"
