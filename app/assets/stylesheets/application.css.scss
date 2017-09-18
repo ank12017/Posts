@@ -266,11 +266,11 @@ p.alert, p.notice {
 		margin-top: 0;
 	}
 
-	#book_category_id {
+	#post_category_id {
 		margin-bottom: 10px;
 	}
 
-	#book_book_img {
+	#post_avatar {
 		margin-bottom: 10px;
 	}
 
@@ -316,3 +316,32 @@ p.alert, p.notice {
 	}
 
 }
+.edit-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+	}
+.forget-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+	}
+	.style_image {
+  border-right: 1px solid #000;
+  height: 80px;
+  width:80px;
+}
+.social-link-bar-container{
+heigth: 10px;
+width:10px;
+horizontal-align:middle;
+margin-top: 50px;
+    margin-bottom: 50px;
+	}
+	.style{
+	margin: 10px;
+	}

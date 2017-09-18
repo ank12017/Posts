@@ -1,27 +1,22 @@
 class UsersController < ApplicationController
-	# POST /users
-  # POST /users.json
+  def show
+    @user = User.find(params[:id])
+    end
 	def create
-		# @post = Post.find(params[:post_id])
-	 #    @user = @post.users.create(user_params)
-	 #    redirect_to post_path(@post)
-         @user = User.new(user_params)
-    		respond_to do |format|
-      			if @user.save
-        		# Tell the UserMailer to send a welcome email after save
-        			UserMailer.welcome_email(@user).deliver_now
+    @user = User.new(params[:user])
  
-        			format.html { redirect_to(@user, notice: 'User was successfully created.') }
-        			format.json { render json: @user, status: :created, location: @user }
-      			else
-        			format.html { render action: 'new' }
-        			format.json { render json: @user.errors, status: :unprocessable_entity }
-      			end
-    		end
-	end
-	# private
-	#     def user_params
-	#       params.require(:user).permit(:first_name, :last_name)
-	#     end
+    respond_to do |format|
+      if @user.save
+        # Tell the UserMailer to send a welcome email after save
+        UserMailer.welcome_email(@user).deliver_now
+ 
+        format.html { redirect_to(@user, notice: 'User was successfully created.') }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-end
+ end

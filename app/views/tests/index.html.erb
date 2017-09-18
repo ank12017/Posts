@@ -1,0 +1,16 @@
+<center>
+<h1>All Tests</h1>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @tests.each do |test| %>
+    <tr>
+      
+      <td><%= test.name%></td>
+      <td><%= link_to 'Show', test_path(test) %></td>
+    </tr>
+  <% end %>
+</table>
+</center>

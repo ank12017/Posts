@@ -69,6 +69,21 @@ Rails.application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
+config.action_mailer.default_options = { from: "rksingh.pis@gmail.com" }
+   config.action_mailer.default_url_options = { :host => 'localhost', port: 3000 }
+  #These settings are for the sending out email for active admin and consequently the   devise mailer
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.perform_deliveries = true
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+    :user_name => 'rksingh.pis@gmail.com',
+    :password => 'ravi1308',
+    :domain => 'gmail.com',
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+}
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify

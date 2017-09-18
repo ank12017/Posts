@@ -23,7 +23,7 @@
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body style="background-color:white">
+  <body style="background-color: lightblue">
   
     <header>
       <nav class="navbar navbar-light bg-light" style="background-color: #b9b9b9;">
@@ -33,12 +33,16 @@
               <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
             <% else %>
               <%= current_user[:name] %>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <%= link_to "Log out with facebook", destroy_user_session_path, method: :delete %>
             <% end %>
              
-            <% if user_signed_in? %>
+            <% if user_signed_in? %> 
+           
+            <li><%= image_tag current_user.avatar, :class =>"style_image" %></li>
+         
              <li><%= link_to 'Posts', posts_path, :class => 'navbar-link' %> </li>
-                <li>Logged in as <strong><%= current_user.first_name %></strong></li>
+          
+                <li>Logged in as <strong><%= current_user.username %></strong></li>
                   <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <span class="glyphicon glyphicon-user"></span> </li>|
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-out"></span> </li>
             <% else %>

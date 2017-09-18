@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
 	belongs_to :user
+	has_many :reviews
+	has_many :comments, dependent: :destroy
 	validates :title, presence: true,
                     length: { minimum: 5 }
                     has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

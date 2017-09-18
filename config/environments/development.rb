@@ -45,20 +45,21 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  config.action_mailer.default_url_options = { :host => 'localhost', port: 3000 }
+  config.action_mailer.default_options = { from: "rksingh.pis@gmail.com" }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
   #These settings are for the sending out email for active admin and consequently the   devise mailer
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.perform_deliveries = true
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-    :user_name => 'rksingh.pis@gmail.com',
-    :password => 'ravi1308',
-    :domain => 'gmail.com',
-    :address => 'smtp.gmail.com',
-    :port => '587',
-    :authentication => :plain,
-    :enable_starttls_auto => true
-}
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :user_name => 'rksingh.pis@gmail.com',
+      :password => 'ravi1308',
+      :domain => 'gmail.com',
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :authentication => 'plain',
+      :enable_starttls_auto => true
+  }
  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

@@ -1,4 +1,4 @@
-<%= form_with(model: [ @post, @post.users.build ], local: true) do |form| %>
+<%= link_to "Profile", current_user %><%= form_with(model: [ @post, @post.users.build ], local: true) do |form| %>
   <p>
     <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
@@ -11,3 +11,4 @@
     <%= form.submit %>
   </p>
 <% end %>
+<%= link_to "Settings", edit_user_path(@user) %>

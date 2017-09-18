@@ -1,4 +1,4 @@
-<center>
+
 <center>
 <div class= "col-md-6 col-md-offset-3">
 <div class= "signup-form ">
@@ -7,8 +7,15 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
+
   <div class="form-inputs">
- <p><%= f.label :username ||:email %><br />
+  <%= f.input :avatar, as: :file %>
+  <p><%= f.label :first_name %><br />
+   <%= f.text_field :first_name %></p>
+   <p><%= f.label :last_name %><br />
+   <%= f.text_field :last_name %></p>
+
+ <p><%= f.label :username||:email %><br />
    <%= f.text_field :username||:email %></p>
 
     <%= f.input :email, required: true, autofocus: true %>
