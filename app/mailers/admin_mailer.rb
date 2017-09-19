@@ -7,8 +7,10 @@ class AdminMailer < ApplicationMailer
     mail(subject: "New User Signup: #{@user.email}")
   end
 
-  def new_contact_us_call(user)
-    @user = user
-    mail(subject: "Test Email")
+  def new_contact_us_call(email, name)
+    @email = email
+    @name = name
+    
+    mail(to: @email, subject: 'Sending notification for contact ')
   end
 end

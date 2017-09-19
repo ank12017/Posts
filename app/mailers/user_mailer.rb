@@ -6,10 +6,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @site_name = "http://cd-online.herokuapp.com"
     @url  = 'http://cd-online.herokuapp.com/users/sign_in'
-    mail(to: @user.email, content_type: "text/html", subject: 'Status updation App') do |format|
-      format.html { render layout: 'my_layout' }
-      format.text
-    end
+    mail(to: @user.email, content_type: "text/html", subject: 'Status updation App') 
   end
 def receive(email)
     page = Page.find_by(address: email.to.first)
