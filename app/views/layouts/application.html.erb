@@ -16,6 +16,12 @@
       text-decoration: none;
   }  
   </style>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
 
     <%= csrf_meta_tags %>
@@ -35,15 +41,29 @@
               <%= current_user[:name] %>
                 <%= link_to "Log out with facebook", destroy_user_session_path, method: :delete %>
             <% end %>
-             
+             <!-- drop down meanu -->
+             <li>
+               <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Test Pages
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'All-Tests', tests_path, :class => 'navbar-link' %> </li>
+                  <li><%= link_to 'All-Questions', questions_path, :class => 'navbar-link' %> </li>
+                  <li><%= link_to 'All-TestQuestions', testquestions_path, :class => 'navbar-link' %></li>
+                </ul>
+              </div>
+              </li>
             <% if user_signed_in? %> 
+
+            <!-- user image -->
            
             <li><%= image_tag current_user.avatar, :class =>"style_image" %></li>
-         
-             <li><%= link_to 'Posts', posts_path, :class => 'navbar-link' %> </li>
+
+             
+          <li><%= link_to 'Posts', posts_path, :class => 'navbar-link' %> </li>
           
                 <li>Logged in as <strong><%= current_user.username %></strong></li>
-                  <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <span class="glyphicon glyphicon-user"></span> </li>|
+                 <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <span class="glyphicon glyphicon-user"></span> </li>|
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-out"></span> </li>
             <% else %>
        
@@ -61,7 +81,7 @@
       <%= yield %>
     </div>
     <footer class="text-center" style="background-color: #b9b9b9">
-      <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+      <a class="up-arrow" href="Demo" data-toggle="tooltip" title="TO TOP">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a><br><br>
        <p>Bootstrap Theme Made By Me</p> 

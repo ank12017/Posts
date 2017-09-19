@@ -1,7 +1,6 @@
-<%= simple_form_for @post, url: posts_path, html:{multipart: true, :id => "fileupload"} do |form| %>
-
+<div class="container">
   <h2>Upload file</h2>
-  
+  <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
       <div class="span7">
@@ -9,7 +8,7 @@
         <span class="btn btn-success fileinput-button">
           <i class="icon-plus icon-white"></i>
           <span>Add files...</span>
-          <%= form.file_field :avatar, :multiple => true %>
+          <%= f.file_field :upload, :multiple => true %>
         </span>
         <button type="submit" class="btn btn-primary start">
           <i class="icon-upload icon-white"></i>
@@ -38,7 +37,9 @@
     <!-- The table listing the files available for upload/download -->
     <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
     </table>
+  <% end %>
 
+</div>
 <script>
   var fileUploadErrors = {
   maxFileSize: 'File is too big',
@@ -130,24 +131,6 @@
         template.addClass('in');
         $('#loading').remove();
       });
+
   });
 </script>
-
-
-  <%= form.hidden_field :user_id, value: current_user.id if user_signed_in? %>
- 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
- 
-  <p>
-    <%= form.button :submit, :class => "btn-custom2 "%>
-  </p>
- 
-<% end %>

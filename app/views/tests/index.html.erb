@@ -8,9 +8,11 @@
   <% @tests.each do |test| %>
     <tr>
       
-      <td><%= test.name%></td>
+      <td><%= test.name %></td>
       <td><%= link_to 'Show', test_path(test) %></td>
     </tr>
   <% end %>
+
 </table>
+<%= link_to 'New Test', new_test_path %>
 </center>

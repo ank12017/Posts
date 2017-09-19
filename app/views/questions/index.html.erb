@@ -1,0 +1,18 @@
+<center>
+<h1>All Questions</h1>
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+ 
+  <% @questions.each do |question| %>
+    <tr>
+      
+      <td><%= question.title %></td>
+      <td><%= link_to 'Show', question_path(question) %></td>
+    </tr>
+  <% end %>
+
+</table>
+<%= link_to 'New Question', new_question_path %>
+</center>

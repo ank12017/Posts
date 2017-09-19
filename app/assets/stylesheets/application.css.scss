@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
+
  */
 
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
@@ -345,3 +348,5 @@ margin-top: 50px;
 	.style{
 	margin: 10px;
 	}
+
+	

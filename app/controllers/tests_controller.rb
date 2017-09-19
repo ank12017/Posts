@@ -6,10 +6,10 @@ class TestsController < ApplicationController
 		 @test = Test.find(params[:id])
 	end
 	def index
-		@test = Test.all
+		@tests = Test.all
 	end
 	def create
-		 @test = Test.new(params[:test])
+		 @test = Test.new(test_params)
            if @test.save
               redirect_to @test
           else
@@ -19,6 +19,6 @@ class TestsController < ApplicationController
 
 	private
       def test_params
-       params.require(:test).permit(:text)
+       params.require(:test).permit(:name)
       end
 end

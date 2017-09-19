@@ -22,6 +22,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'paperclip', '~> 5.1'
 gem 'simple_form', '~> 3.5'
 gem 'carrierwave', '~> 1.1'
+gem 'jquery-rails'
+gem "jquery-fileupload-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

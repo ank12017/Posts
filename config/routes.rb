@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+   resources :uploads
 
 root 'welcome#index'
 
@@ -15,6 +15,8 @@ resources :posts do
 	resources :reviews
 end
 resources :tests
+resources :questions
+resources :testquestions
 
 post 'welcome/contact_us_mailer' 
 # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
